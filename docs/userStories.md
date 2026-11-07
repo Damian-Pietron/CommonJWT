@@ -1,0 +1,31 @@
+- As a developer, I want to create a JWT with a custom payload (claims) so that I can identify the user and pass data between services.
+- As a developer, I want to choose the signing algorithm (e.g., HS256, RS256, ES256) so that I can match my security requirements.
+- As a developer, I want to sign tokens with a server-side secret or private key so that tokens cannot be forged.
+- As a developer, I want the library to automatically build the header (alg, typ) so that I don’t have to construct it manually.
+- As a developer, I want to set standard claims (sub, iss, aud, iat, nbf, exp, jti) so that tokens follow RFC 7519.
+- As a developer, I want to set a token lifetime (e.g., 15 minutes) so that stolen tokens expire quickly.
+- As a developer, I want to verify a token’s signature so that I can confirm it was issued by my server and not tampered with.
+- As a developer, I want the signature comparison to be constant-time so that timing attacks are not possible.
+- As a developer, I want verification to reject expired tokens so that old tokens cannot be reused.
+- As a developer, I want verification to reject tokens used before their nbf time so that not-yet-valid tokens are denied.
+- As a developer, I want to validate iss and aud against expected values so that tokens meant for other systems are rejected.
+- As a developer, I want to pin the allowed algorithms during verification so that algorithm-substitution attacks are prevented.
+- As a developer, I want the library to always reject alg: none tokens so that unsigned tokens are never accepted.
+- As a developer, I want to configure clock skew tolerance so that small time differences between servers don’t cause false rejections.
+- As a developer, I want to decode a token and read its claims after successful verification so that I can use the user ID and roles.
+- As a developer, I want clear, typed errors (invalid signature, expired, malformed, wrong audience) so that I can respond with proper HTTP status codes.
+- As a developer, I want malformed tokens (wrong number of parts, invalid Base64URL or JSON) to fail safely without throwing unhandled exceptions.
+- As a developer, I want to support key rotation via a key ID (kid) header so that I can replace keys without invalidating all tokens at once.
+- As a developer, I want a hook or blacklist check (by jti) so that I can revoke specific tokens before they expire.
+- As a developer, I want the library to never log or expose secrets, keys, or full tokens so that sensitive data is not leaked.
+- As a developer, I want to enforce a minimum key length for HMAC secrets so that weak keys are rejected.
+- As a developer, I want a simple, well-documented API with sensible secure defaults so that I can use it correctly without deep cryptography knowledge.
+- As a developer, I want to manipulate the maximum payload size to avoid extensive time encoding errors.
+- As a developer, I expect lib to handle multiple iss and aud values.
+- As a developer, I want to choose a key management policy (static key, rolling key, or JWKS) so that I can match the library to my deployment and security needs.
+- As a developer, I want to provide a static key from configuration so that I can get started quickly with a simple setup.
+- As a developer, I want the library to automatically generate and rotate signing keys at a configurable interval so that I get key rotation without manual work.
+- As a developer, I want retired rolling keys to remain valid for verification until all tokens signed with them have expired so that rotation does not log out users.
+- As a developer, I want to implement a custom key provider interface so that I can plug in my own key source (including JWKS) without changing the library.
+- As a developer, I want to automaticall generate UUID for JTI
+- As a developer, I want to configure a maximum token size (default e.g. 8 KB) so that oversized tokens are rejected before parsing and cannot be used for denial-of-service attacks.
